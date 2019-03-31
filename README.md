@@ -1,3 +1,11 @@
+# What's this?
+
+A primitive script that logs the name of the front-most application on your Mac to a file.
+
+## Why?
+
+At the end of some amount of time, you can analyze your application use.
+
 # Install
 
 `cd` into this project directory
