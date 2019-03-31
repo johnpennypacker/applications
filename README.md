@@ -15,6 +15,11 @@ Copy the plist to your LaunchAgents directory:
 
 `cp app-logger.plist ~/Library/LaunchAgents/app-logger.plist`
 
+Give the Application Logger script permission to do its thing.
+* Open System Preferences -> Security & Privacy -> Privacy
+* Go to the "Full Disk Access" pane
+* add app-logger.sh to the list
+
 
 Launch the agent
 
