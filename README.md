@@ -40,4 +40,4 @@ Launch the agent
 
 `rm ~/Library/LaunchAgents/app-logger.plist`
 
-delete this directory
+delete the project directory
