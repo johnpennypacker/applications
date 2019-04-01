@@ -6,8 +6,6 @@
 	<string>LOCAL.MAC.APPLICATION</string>
 	<key>Program</key>
 	<string>/PATH/TO/life-logs/applications/app-logger.sh</string>
-	<key>RunAtLoad</key>
-	<true/>
 	<key>StartInterval</key>
 	<integer>30</integer>
 </dict>

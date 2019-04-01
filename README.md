@@ -19,9 +19,9 @@ modify app-logger.plist to taste.
 * StartInterval is how many seconds between each recorded application
 
 
-Copy the plist to your LaunchAgents directory:
+Add a symlink to your plist in your LaunchAgents directory:
 
-`cp app-logger.plist ~/Library/LaunchAgents/app-logger.plist`
+`ln -s PATH/TO/FILE/app-logger.plist ~/Library/LaunchAgents/app-logger.plist`
 
 Give the Application Logger script permission to do its thing.
 * Open System Preferences -> Security & Privacy -> Privacy
@@ -33,6 +33,7 @@ Launch the agent
 
 `launchctl load -w ~/Library/LaunchAgents/app-logger.plist`
 
+Note: you'll be prompted to allow the logger application to control System Events.
 
 # Uninstall
 
