@@ -42,3 +42,7 @@ Note: you'll be prompted to allow the logger application to control System Event
 `rm ~/Library/LaunchAgents/app-logger.plist`
 
 delete the project directory
+
+# What does it log?
+
+The script writes a new line to a file every X seconds (default is 30).  It records the name of the application, a time stamp, and a number in seconds that represents how long the Mac believes that the current user has been idle.
