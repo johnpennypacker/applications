@@ -15,7 +15,7 @@ FILEPATH=$CURRENTPATH/application-logs/process-`date +"%Y%m%d"`.json
 
 if [ -f $FILEPATH ]
 then
-	sed -i '' 's/}/,['$APPLICATION', '$TIMESTAMP', '$IDLENESS']}/' $FILEPATH
+	sed -i '' 's/}/,['\"$APPLICATION\"', '\"$TIMESTAMP\"', '$IDLENESS']}/' $FILEPATH
 else
 	echo "{[$APPLICATION, $TIMESTAMP, $IDLENESS]}" >> $FILEPATH
 fi
