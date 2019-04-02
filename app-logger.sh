@@ -11,4 +11,11 @@ CURRENTPATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 mkdir -p $CURRENTPATH/application-logs
 #logger -s "Error Message"
 
-echo "$APPLICATION, $TIMESTAMP, $IDLENESS" >> $CURRENTPATH/application-logs/process-`date +"%Y%m%d"`.txt
+FILEPATH=$CURRENTPATH/application-logs/process-`date +"%Y%m%d"`.json
+
+if [ -f $FILEPATH ]
+then
+	sed -i '' 's/}/,['$APPLICATION', '$TIMESTAMP', '$IDLENESS']}/' $FILEPATH
+else
+	echo "{[$APPLICATION, $TIMESTAMP, $IDLENESS]}" >> $FILEPATH
+fi
