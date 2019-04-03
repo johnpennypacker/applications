@@ -31,11 +31,46 @@
 	
 	function render( raw ) {
 		
-		var data;
+		var data, n, list, sortable, i, x, name;
 		
 		data = JSON.parse( raw );
+		n = data.data.length;
+		list = {}
 		
-		console.log( data );
+		for ( i = 0; i < n; i++ ) {
+			name = data.data[i][0];
+			name in list ? ++list[name] : list[name] = 1
+		}
+		
+		sortable = [];
+		for ( x in list ) {
+			sortable.push( [x, list[x]] );
+		}
+		
+		output( sortable, n );
+		
+	}
+	
+	function output( list, n ) {
+		
+		var el, ul, li, name, x, i;
+		
+		el = document.getElementById( 'output' );
+		ul = document.createElement( 'ul' );
+
+		list.sort( function( a, b ) {
+			return b[1] - a[1];
+		});
+		
+		for ( i = 0; i < list.length; i++ ) {
+			
+			li = document.createElement( 'li' )
+			li.innerHTML = '<strong>' + list[i][0] + '</strong>: ' + ( list[i][1] / n * 100 ).toFixed(1) + '%';
+			ul.appendChild( li );
+			
+		}
+		
+		el.appendChild( ul );
 		
 	}
 	
