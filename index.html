@@ -4,11 +4,30 @@
 	<head>
 		<title>Applications</title>
 		<script type="text/javascript" src="js/script.js"></script>
+		<style>
+			
+			form select,
+			form input {
+				display: inline-block;
+			}
+		
+		</style>
 	</head>
 
 	<body>
 		
-		<h1>Today</h1>
+		<h1 id="date">Today</h1>
+		
+		<form>
+			<legend>Pick a different date:</legend>
+			<select id="select-year">
+				<option value="2019">2019</option>
+			</select>
+			<select id="select-month"></select>
+			<select id="select-day"></select>
+			<input type="button" id="submit" value="View Data">
+			<input type="button" id="view-today" value="Today">
+		</form>
 	
 		<div id="output"></div>
 		

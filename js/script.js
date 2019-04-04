@@ -4,11 +4,44 @@
 	
 	function init() {
 		
+		var month, day, opt, i;
+		
+		month = document.getElementById( 'select-month' );
+		for ( i = 1; i < 13; i++ ) {
+			opt = document.createElement( 'option' );
+			opt.value = i;
+			opt.innerHTML = i;
+			month.appendChild( opt );
+		}
+		
+		day = document.getElementById( 'select-day' );
+		for ( i = 1; i < 32; i++ ) {
+			opt = document.createElement( 'option' );
+			opt.value = i;
+			opt.innerHTML = i;
+			day.appendChild( opt );
+		}
+		
+		document.getElementById( 'submit' ).addEventListener( 'click', function() {
+			var n = document.getElementById( 'select-year').value + ( '0' + ( month.value ) ).slice( -2 ) + ( '0' + day.value ).slice( -2 );
+			document.getElementById( 'date' ).innerHTML = n;
+			load( n, render );
+		});
+		
+		document.getElementById( 'view-today').addEventListener( 'click', loadToday, false );
+		
+		loadToday();
+															
+	}
+																
+	function loadToday() {
+		
 		var d, n;
 		
 		d = new Date();
 		n = d.getFullYear() + ( '0' + ( d.getMonth() + 1 ) ).slice( -2 ) + ( '0' + d.getDate() ).slice( -2 );
 
+		document.getElementById( 'date' ).innerHTML = "Today";
 		load( n, render );
 		
 	}
@@ -22,7 +55,9 @@
 		xobj.open('GET', file, true);
 		xobj.onreadystatechange = function () {
 			  if (xobj.readyState == 4 && xobj.status == "200") {
-				callback(xobj.responseText);
+				  callback(xobj.responseText);
+			  } else if ( xobj.status != "200" ) {
+				  document.getElementById( 'output' ).innerHTML = "Unable to retrieve data";
 			  }
 		};
 		xobj.send(null); 
@@ -37,8 +72,8 @@
 		n = data.length;
 		list = {}
 		
-		for ( i = 0; i < n; i++ ) {
-			name = data[i].application;
+		for ( x in data ) {
+			name = data[x].application;
 			name in list ? ++list[name] : list[name] = 1
 		}
 		
@@ -70,6 +105,7 @@
 			
 		}
 		
+		el.innerHTML = '';
 		el.appendChild( ul );
 		
 	}
