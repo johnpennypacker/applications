@@ -34,11 +34,11 @@
 		var data, n, list, sortable, i, x, name;
 		
 		data = JSON.parse( raw );
-		n = data.data.length;
+		n = data.length;
 		list = {}
 		
 		for ( i = 0; i < n; i++ ) {
-			name = data.data[i][0];
+			name = data[i].application;
 			name in list ? ++list[name] : list[name] = 1
 		}
 		
