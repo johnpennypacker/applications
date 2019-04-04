@@ -13,9 +13,11 @@ mkdir -p $CURRENTPATH/application-logs
 
 FILEPATH=$CURRENTPATH/application-logs/process-`date +"%Y%m%d"`.json
 
+ROW=\{\"application\":\"$APPLICATION\",\"timestamp\":\"$TIMESTAMP\",\"idle\":$IDLENESS\}
+
 if [ -f $FILEPATH ]
 then
-	sed -i '' 's/]}/,["'$APPLICATION'", "'$TIMESTAMP'", '$IDLENESS']]}/' $FILEPATH
+	sed -i "" "s/]/,$ROW]/" $FILEPATH
 else
-	echo '{"data":[["'$APPLICATION'", "'$TIMESTAMP'", '$IDLENESS']]}' >> $FILEPATH
+	echo "[$ROW]" >> $FILEPATH
 fi
