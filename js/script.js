@@ -25,6 +25,7 @@
 		document.getElementById( 'submit' ).addEventListener( 'click', function() {
 			var n = document.getElementById( 'select-year').value + ( '0' + ( month.value ) ).slice( -2 ) + ( '0' + day.value ).slice( -2 );
 			document.getElementById( 'date' ).innerHTML = n;
+			document.getElementById( 'view-today').value = "Today";
 			load( n, render );
 		});
 		
@@ -42,6 +43,7 @@
 		n = d.getFullYear() + ( '0' + ( d.getMonth() + 1 ) ).slice( -2 ) + ( '0' + d.getDate() ).slice( -2 );
 
 		document.getElementById( 'date' ).innerHTML = "Today";
+		document.getElementById( 'view-today').value = "Refresh";
 		load( n, render );
 		
 	}
