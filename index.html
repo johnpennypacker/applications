@@ -10,6 +10,29 @@
 			form input {
 				display: inline-block;
 			}
+			
+			#output {
+				margin-top: 20px;
+			}
+			
+			li {
+				position: relative;
+			}
+			
+			li>div {
+				position: absolute;
+				left: 200px;
+				display: inline-block;
+				width: 400px;
+				height: 10px;
+				background: #eee;
+			}
+			
+			li>div>div {
+				display: block;
+				height: 10px;
+				background: #000;
+			}
 		
 		</style>
 	</head>
@@ -28,7 +51,7 @@
 			<input type="button" id="submit" value="View Data">
 			<input type="button" id="view-today" value="Refresh">
 		</form>
-	
+
 		<div id="output"></div>
 		
 	</body>

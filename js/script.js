@@ -90,7 +90,7 @@
 	
 	function output( list, n ) {
 		
-		var el, ul, li, name, x, i;
+		var el, ul, li, name, x, i, p;
 		
 		el = document.getElementById( 'output' );
 		ul = document.createElement( 'ul' );
@@ -101,13 +101,15 @@
 		
 		for ( i = 0; i < list.length; i++ ) {
 			
+			p = ( list[i][1] / n * 100 ).toFixed(1)
+			
 			li = document.createElement( 'li' )
-			li.innerHTML = '<strong>' + list[i][0] + '</strong>: ' + ( list[i][1] / n * 100 ).toFixed(1) + '%';
+			li.innerHTML = '<strong>' + list[i][0] + '</strong>: ' + p + '% <div><div style="width:' + p + '%"></div></div>';
 			ul.appendChild( li );
 			
 		}
 		
-		el.innerHTML = '';
+		el.innerHTML = 'Apps used: ' + list.length;
 		el.appendChild( ul );
 		
 	}
